@@ -26,7 +26,7 @@
     },
     "devDependencies": {},
     "scripts": {
-        "start": "node app",
+        "start": "npm install &&node app",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
