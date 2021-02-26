@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tiket Generator</title>
+        <style>
+            form {
+                display: flex;
+                width: 30vw;
+                flex-direction: column;
+            }
+            .penumpangs div {
+                text-decoration: underline;
+            }
+            .penumpang {
+                padding: 10px;
+            }
+            .penumpang div {
+                padding: 0.3rem;
+            }
+            input {
+                margin: 0.1rem 0;
+                padding: 0.2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tiket Generator !</h1>
+        <form action="/create" method="post">
+            <input type="text" name="nama" id="nama" placeholder="Nama" />
+            <input
+                type="text"
+                name="tanggalLahir"
+                id="tanggalLahir"
+                placeholder="Tanggal Lahir"
+            />
+            <input
+                type="text"
+                name="stasiunAwal"
+                id="stasiunAwal"
+                placeholder="Stasiun Awal"
+            />
+            <input
+                type="text"
+                name="jamBerangkat"
+                id="jamBerangkat"
+                placeholder="Jam Berangkat"
+            />
+            <input
+                type="text"
+                name="stasiunTujuan"
+                id="stasiunTujuan"
+                placeholder="Stasiun Tujuan"
+            />
+            <input
+                type="text"
+                name="jamSampai"
+                id="jamSampai"
+                placeholder="Jam Sampai"
+            />
+            <br />
+            <button type="submit">Submit</button>
+        </form>
+        <div class="penumpangs">
+            <%penumpangs.forEach(p=>{%>
+            <div class="penumpang">
+                <div class="tiket">Kode Tiket : <%=p._id%></div>
+                <div class="nama">Nama : <%=p.nama%></div>
+                <div class="tanggalLahir">
+                    Tanggal Lahir : <%=p.tanggalLahir%>
+                </div>
+                <div class="stasiunAwal">Stasiun Awal : <%=p.stasiunAwal%></div>
+                <div class="jamBerangkat">
+                    Jam Berangkat : <%=p.jamBerangkat%>
+                </div>
+                <div class="stasiunTujuan">
+                    Stasiun Tujuan : <%=p.stasiunTujuan%>
+                </div>
+                <div class="jamSampai">Jam Sampai : <%=p.jamSampai%></div>
+                <button class="deletePenumpang">Delete</button>
+                <script>
+                    document
+                        .querySelector(".penumpangs")
+                        .addEventListener("click", (e) => {
+                            if (e.target.className == "deletePenumpang") {
+                                console.log(
+                                    e.target.parentElement.childNodes[1]
+                                );
+                            }
+                        });
+                    function deleteUser(userID) {}
+                </script>
+            </div>
+            <%})%>
+        </div>
+    </body>
+</html>
