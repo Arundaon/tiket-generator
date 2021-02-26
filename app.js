@@ -2,7 +2,7 @@ const { json } = require("body-parser");
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
-const port = 443;
+const port = 8000;
 require("dotenv/config");
 const mongoose = require("mongoose");
 const Penumpang = require("./Models/Penumpang");
