@@ -9,11 +9,9 @@ const Penumpang = require("./Models/Penumpang");
 const urlencodedParser = express.urlencoded({ extended: false });
 app.set("view engine", "ejs");
 app.set("views", "website");
-console.log(process.env.DATABASE_KEY);
 app.get("/", async (req, res) => {
     try {
         const penumpangs = await Penumpang.find();
-        console.log(penumpangs);
         res.render("home", { penumpangs: penumpangs });
     } catch (err) {
         res.send(err);
@@ -31,8 +29,16 @@ app.post("/create", urlencodedParser, async (req, res) => {
     try {
         const savedPenumpang = await penumpang.save();
         res.redirect("/");
-    } catch {
-        res.send(err);
+    } catch (err) {
+        res.json(err);
+    }
+});
+app.delete("/delete", async (req, res) => {
+    try {
+        Penumpang.deleteOne({ _id: req.body._id });
+        res.send("<script>alert('deleted')</script>");
+    } catch (err) {
+        res.send("<script>alert('error deleting');</script>");
     }
 });
 mongoose.connect(

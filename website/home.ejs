@@ -31,7 +31,7 @@
         <form action="/create" method="post">
             <input type="text" name="nama" id="nama" placeholder="Nama" />
             <input
-                type="text"
+                type="date"
                 name="tanggalLahir"
                 id="tanggalLahir"
                 placeholder="Tanggal Lahir"
@@ -43,7 +43,7 @@
                 placeholder="Stasiun Awal"
             />
             <input
-                type="text"
+                type="datetime-local"
                 name="jamBerangkat"
                 id="jamBerangkat"
                 placeholder="Jam Berangkat"
@@ -55,7 +55,7 @@
                 placeholder="Stasiun Tujuan"
             />
             <input
-                type="text"
+                type="datetime-local"
                 name="jamSampai"
                 id="jamSampai"
                 placeholder="Jam Sampai"
@@ -79,19 +79,6 @@
                     Stasiun Tujuan : <%=p.stasiunTujuan%>
                 </div>
                 <div class="jamSampai">Jam Sampai : <%=p.jamSampai%></div>
-                <button class="deletePenumpang">Delete</button>
-                <script>
-                    document
-                        .querySelector(".penumpangs")
-                        .addEventListener("click", (e) => {
-                            if (e.target.className == "deletePenumpang") {
-                                console.log(
-                                    e.target.parentElement.childNodes[1]
-                                );
-                            }
-                        });
-                    function deleteUser(userID) {}
-                </script>
             </div>
             <%})%>
         </div>

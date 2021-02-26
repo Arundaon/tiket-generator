@@ -6,7 +6,7 @@ const schema = mongoose.Schema({
         required: true,
     },
     tanggalLahir: {
-        type: String,
+        type: Date,
         required: true,
     },
     stasiunAwal: {
@@ -14,7 +14,7 @@ const schema = mongoose.Schema({
         required: true,
     },
     jamBerangkat: {
-        type: String,
+        type: Date,
         required: true,
     },
     stasiunTujuan: {
@@ -22,7 +22,7 @@ const schema = mongoose.Schema({
         required: true,
     },
     jamSampai: {
-        type: String,
+        type: Date,
         required: true,
     },
 });
