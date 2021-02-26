@@ -2,6 +2,7 @@ const { json } = require("body-parser");
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
+const port = 443;
 require("dotenv/config");
 const mongoose = require("mongoose");
 const Penumpang = require("./Models/Penumpang");
@@ -43,8 +44,8 @@ mongoose.connect(
         if (err) {
             console.log(err);
         } else {
-            app.listen(443, () => {
-                console.log("listening");
+            app.listen(port, () => {
+                console.log("listening to port " + port);
             });
             console.log("connected to database");
         }
