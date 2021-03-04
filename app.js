@@ -33,6 +33,22 @@ app.post("/create", urlencodedParser, async (req, res) => {
         res.json(err);
     }
 });
+app.get("/show/:id", async (req, res) => {
+    try {
+        const penumpang = await Penumpang.findById(req.params.id);
+        res.json(penumpang);
+    } catch (err) {
+        res.status(400).json({ message: "id not found", err });
+    }
+});
+app.get("/show-all", async (req, res) => {
+    try {
+        const penumpangs = await Penumpang.find();
+        res.json(penumpangs);
+    } catch (err) {
+        res.status(400).json({ message: "invalid request", err });
+    }
+});
 app.delete("/delete", async (req, res) => {
     try {
         Penumpang.deleteOne({ _id: req.body._id });
